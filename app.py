@@ -1,7 +1,7 @@
 from nicegui import ui
 from datetime import datetime
 
-def procesar_texto(texto):
+def procesar_texto(texto: str) -> str:
     return f"[{datetime.now().strftime('%H:%M:%S')}] Procesado OK: {texto}"
 
 # --- UI ---
@@ -11,10 +11,10 @@ ui.markdown("Versión mínima para testear y desplegar en Render.")
 ui.markdown("### ✅ Procesar texto")
 
 ui.label("Ingresa texto")
-entrada = ui.textarea(placeholder="Escribe algo aquí...", auto_grow=True)
+entrada = ui.textarea(placeholder="Escribe algo aquí...").props('autogrow')
 
 ui.label("Resultado")
-salida = ui.textarea(auto_grow=True)
+salida = ui.textarea().props('autogrow')
 
 def ejecutar():
     salida.value = procesar_texto(entrada.value or "")
