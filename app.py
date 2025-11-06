@@ -9,8 +9,12 @@ ui.markdown("# 🌟 MetaSistema MINI")
 ui.markdown("Versión mínima para testear y desplegar en Render.")
 
 ui.markdown("### ✅ Procesar texto")
-entrada = ui.textarea(label="Ingresa texto", placeholder="Escribe algo aquí...", auto_grow=True)
-salida = ui.textarea(label="Resultado", auto_grow=True)
+
+ui.label("Ingresa texto")
+entrada = ui.textarea(placeholder="Escribe algo aquí...", auto_grow=True)
+
+ui.label("Resultado")
+salida = ui.textarea(auto_grow=True)
 
 def ejecutar():
     salida.value = procesar_texto(entrada.value or "")
